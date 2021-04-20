@@ -53,22 +53,73 @@ console.log( 'isPositive - should say false', isPositive(-3) );
 
 // 6. Function to return the _last_ item in an array. If the
 //    array is empty, return `undefined`.
-function getLast( array ) {
 
+function getLast( array ) {
+  if (array.length == 0){
+    return 'undefined';
+  }
+  else {
+    return array[array.length - 1];
+  }
 }
+
+let cats = ['cute', 'soft', 'silly', 'rude', 'chaotic'];
+let dogs = [];
+
+console.log('should say chaotic:', getLast(cats));
+console.log('should say undefined:', getLast(dogs));
 
 // 7. Function to find a value in an array. Return true if the
 //    value is found and false otherwise. Use a loop;
 //    DO NOT use Array.includes, Array.indexOf, or Array.find
-function find( value, array ){
+console.log('--- Question 7 ---')
 
+function findOf( value, array ){
+  for (item of array){
+    if (item == value){
+      return true;
+    }
+  }
+  return false;
 }
 
+function find( value, array ){
+  for (let i=0; i<array.length; i++){
+    if (array[i] == value){
+      return true;
+    }
+  }
+  return false;
+}
+
+function findWhile(value, array){
+  let i = 0;
+  while (i<array.length){
+    if (array[i] == value){
+      return true;
+    }
+    i++;
+  }
+  return false;
+}
+
+let first = [2, 33, 43, 22.3, 1243];
+
+console.log('should say true:', find(33, first));
+console.log('should say false:', find(342, first));
+console.log('trying with while return. should be false:', findWhile (22, first));
+console.log('trying with while return. should be true:', findWhile (1243, first));
+console.log('trying with for of. Should be true:', findOf(43, first));
+console.log('trying with for of. Should be false:', findOf(45, first));
+console.log('trying with for of. Should be true:', findOf(22.3, first));
 // ----------------------
 // Stretch Goals
 // ----------------------
 // 8. Function to check if a letter is the first letter in a
 //    string. Return true if it is, and false otherwise
+console.log('--- Stretch Goals ---');
+console.log('--- Question 8 ---')
+
 function isFirstLetter(letter, string) {
 
 }
