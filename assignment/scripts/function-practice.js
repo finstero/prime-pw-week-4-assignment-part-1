@@ -120,13 +120,53 @@ console.log('trying with for of. Should be true:', findOf(22.3, first));
 console.log('--- Stretch Goals ---');
 console.log('--- Question 8 ---')
 
-function isFirstLetter(letter, string) {
+function isFirstLetter2(letter, string) { //changed function name from question
+  let letterUp = letter.toUpperCase(); //ensures letter is capitalized
+  let stringUp = string.toUpperCase(); // ensures whole string is capitalized
+  let check = stringUp.indexOf(letterUp); //checks if letter is in string, and outputs index (numbered position starting at 0)
+  console.log('check is:', check); //logs numbered position of letter. outputs -1 if letter not in string
+  if (check == 0){ // if letter is in first position (index of 0), will return true
+    return true;
+  }
+  if (check != 0){
+    return false;
+  }
+}
 
+console.log( 'accounting for case. isFirstLetter - should say true', isFirstLetter2('a', 'apple') );
+console.log( 'isFirstLetter - should say false', isFirstLetter2('z', 'apple') );
+console.log( 'isFirstLetter - should say false', isFirstLetter2('p', 'apple') );
+console.log( 'isFirstLetter - should say true if accounts for capital letters', isFirstLetter2('A', 'apple') );
+console.log( 'isFirstLetter - should say true if accounts for capital letters', isFirstLetter2('a', 'Apple') );
+
+//this function does not account for letter case
+function isFirstLetter(letter, string) {
+  let check = string.indexOf(letter); //checks if letter is in string, and outputs index (numbered position starting at 0)
+  console.log('check is:', check); //logs numbered position of letter. outputs -1 if letter not in string
+  if (check == 0){ // if letter is in first position (index of 0), will return true
+    return true;
+  }
+  if (check != 0){
+    return false;
+  }
 }
 console.log( 'isFirstLetter - should say true', isFirstLetter('a', 'apple') );
 console.log( 'isFirstLetter - should say false', isFirstLetter('z', 'apple') );
+console.log( 'isFirstLetter - should say false', isFirstLetter('p', 'apple') );
+console.log( 'isFirstLetter - should say false if does not account for case', isFirstLetter('A', 'apple') );
+
+//feel free to ignore. testing different functions so I understand them! Leaving in for myself.
+console.log('messing around');
+
+let explore = 'explore'
+let attempt = explore.indexOf('e');
+console.log('should be zero:', attempt);
+let uppercase = explore.toUpperCase();
+console.log('which will be uppercase?', uppercase);
 
 // 9. Function to return the sum of all numbers in an array
+console.log('--- Question 9 ---');
+
 function sumAll( ) {
   let sum = 0
   // TODO: loop to add items
